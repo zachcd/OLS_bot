@@ -13,11 +13,14 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "fuck")) {
     msg.channel.sendMessage("Fuck Smegs!");
   }
+  if (msg.content.startsWith(prefix + "fugg")) {
+    msg.channel.sendMessage("XD");
+  }
 
   if (msg.content.startsWith(prefix + "register")) {
-    let captainRole = msg.guild.roles.get("name", "OlS Captain");
-    if (msg.member.roles.has(captainRole)) {
-      console.log(message.content);
+    captainRole = msg.guild.roles.get("233053880685035550");
+    if (msg.member.roles.has(captainRole.id)) {
+       let args = message.content.split(" ").slice(1);
       Team.create({ CaptainID: msg.author.id, TeamName: teamName, CaptainIGN: captainIGN}).then(function(team) {
         console.log("Team" + teamName + "Created");
       });
