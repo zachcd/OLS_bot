@@ -4,6 +4,7 @@
   "description": "OLS draft",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "test"
   },
   "author": "",

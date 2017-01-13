@@ -22,6 +22,8 @@ npm install
 
 npm config set olsbot:token  [theApiTokenForYourBot]
 
+npm run start
+
 
 # Running:
 
