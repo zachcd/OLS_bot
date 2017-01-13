@@ -9,6 +9,9 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "fuck")) {
     msg.channel.sendMessage("Fuck Smegs!");
   }
+  if (msg.content.startsWith(prefix + "fugg")) {
+    msg.channel.sendMessage("XD");
+  }
 });
 
 bot.on('ready', () => {
