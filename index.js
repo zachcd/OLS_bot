@@ -20,7 +20,7 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "register")) {
     captainRole = msg.guild.roles.get("233053880685035550");
     if (msg.member.roles.has(captainRole.id)) {
-       let args = message.content.split(" ").slice(1);
+       let args = message.content.split(",").slice(1);
       Team.create({ CaptainID: msg.author.id, TeamName: teamName, CaptainIGN: captainIGN}).then(function(team) {
         console.log("Team" + teamName + "Created");
       });
