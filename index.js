@@ -13,7 +13,10 @@ bot.on("message", msg => {
     msg.channel.sendMessage("Fuck Smegs!");
   }
   if (msg.content.startsWith(prefix + "register")) {
+    let captainRole = msg.guild.roles.get("name", "OlS Captain");
+    if (msg.member.roles.has(captainRole)) {
 
+    }
   }
   if (msg.content.startsWith(prefix + "impeach")) {
     msg.channel.sendMessage("This should be the image of John.");
