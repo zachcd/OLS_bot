@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.0.0"
+    "discord.js": "^11.0.0",
+    "sequelize": "^3.29.0",
+    "sqlite3": "^3.1.8"
   }
 }

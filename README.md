@@ -4,7 +4,7 @@ Will run the OLS draft in the LoL@Pitt Discord, assign players to Team Roles on 
 
 # Important tools:
 
-Node 
+Node
 
 NPM
 
@@ -19,6 +19,8 @@ A Computer
 git clone
 
 npm install
+
+npm config set olsbot:token  [theApiTokenForYourBot]
 
 
 # Running:
