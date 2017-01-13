@@ -15,6 +15,9 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "register")) {
 
   }
+  if (msg.content.startsWith(prefix + "impeach")) {
+    msg.channel.sendMessage("This should be the image of John.");
+  }
 });
 
 bot.on("guildMemberAdd", (member) => {
@@ -28,4 +31,4 @@ bot.on('ready', () => {
 
 bot.on('error', e => { console.error(e); });
 
-bot.login("MjY5NDg1MDY0ODAxMzUzNzM4.C1qBKQ.q8FGymK1NwvFzKuF1Grx4p4g6As");
+bot.login(process.env.npm_package_config_olsbot:token);
