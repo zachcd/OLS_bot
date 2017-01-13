@@ -15,6 +15,9 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "register")) {
 
   }
+  if (msg.content.startsWith(prefix + "impeach")) {
+    msg.channel.sendMessage("This should be the image of John.");
+  }
 });
 
 bot.on("guildMemberAdd", (member) => {
