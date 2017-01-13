@@ -2,23 +2,29 @@
 Will run the OLS draft in the LoL@Pitt Discord, assign players to Team Roles on the Server, and create Team Rooms for Captains.
 
 
-Important tools:
+# Important tools:
 
-Node
-Node Package Manager
+Node 
+
+NPM
+
 A Brain
+
 Fingers
+
 A Computer
 
-Installation:
+# Installation:
 
 git clone
+
 npm install
 
 
-Running:
+# Running:
+
 not sure yet
 
-Does it work:
+# Does it work:
 
 Idk
