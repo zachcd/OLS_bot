@@ -41,6 +41,9 @@ var Team = database.define('team', {
   CaptainID: {
     type: Sequelize.STRING
   },
+  TeamName: {
+    type: Sequelize.STRING
+  },
   CaptainIgn: {
     type: Sequelize.STRING
   },

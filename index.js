@@ -1,4 +1,5 @@
 var Discord = require("discord.js");
+var sequelize = require("./sequelize.js");
 var bot = new Discord.Client();
 
 bot.on("message", msg => {
@@ -12,12 +13,17 @@ bot.on("message", msg => {
   if (msg.content.startsWith(prefix + "fuck")) {
     msg.channel.sendMessage("Fuck Smegs!");
   }
+
   if (msg.content.startsWith(prefix + "register")) {
     let captainRole = msg.guild.roles.get("name", "OlS Captain");
     if (msg.member.roles.has(captainRole)) {
-
+      console.log(message.content);
+      Team.create({ CaptainID: msg.author.id, TeamName: teamName, CaptainIGN: captainIGN}).then(function(team) {
+        console.log("Team" + teamName + "Created");
+      });
     }
   }
+
   if (msg.content.startsWith(prefix + "impeach")) {
     msg.channel.sendMessage("This should be the image of John.");
   }
