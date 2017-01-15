@@ -49,6 +49,24 @@ bot.on('error', e => { console.error(e); });
 
 bot.login(process.env.npm_package_config_token);
 
+function AddPlayer(Player, Team) {
+    if (Team.Player1 == null) {
+      Team.update({Player1: Player.IGN}).then(updated => {
+        return ("Player was added, team has 2 players");
+      })
+    } else if (Team.Player2 == null) {
+      Team.update({Player2: Player.IGN}).then(updated => {
+        return ("Player was added, team has 3 players");
+      })
+    } else if (Team.Player3 == null) {
+      Team.update({Player3: Player.IGN}).then(updated => {
+        return ("Player was added, team has 4 players");
+      })
+    } else if (Team.Player4 == null) {
+      Team.update({Player4: Player.IGN}).then(updated => {
+        return ("Player was added, team is full");
+      })
+    }
 function removeLastPlayer(Team) {
   if (Team.Player1 == null ) {
     return ("There are no Players on this team");
