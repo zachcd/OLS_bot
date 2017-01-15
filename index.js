@@ -77,11 +77,16 @@ bot.on('error', e => { console.error(e); });
 bot.login(process.env.npm_package_config_token);
 
 
+function getPoints(Team) {
+  return(Team.get().PointsLeft);
+}
+
 function addPoints(Team, pointsToAdd) {
   var points = Team.get().PointsLeft;
   Team.update({PointsLeft: points + pointsToAdd}).then(updated => {
     return("Team now has " + updated.PointsLeft + " points left");
   })
+}
 function AddPlayer(Player, Team) {
     if (Team.Player1 == null) {
       Team.update({Player1: Player.IGN}).then(updated => {
