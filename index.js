@@ -49,9 +49,51 @@ bot.on('error', e => { console.error(e); });
 
 bot.login(process.env.npm_package_config_token);
 
+
 function addPoints(Team, pointsToAdd) {
   var points = Team.get().PointsLeft;
   Team.update({PointsLeft: points + pointsToAdd}).then(updated => {
     return("Team now has " + updated.PointsLeft + " points left");
   })
+function AddPlayer(Player, Team) {
+    if (Team.Player1 == null) {
+      Team.update({Player1: Player.IGN}).then(updated => {
+        return ("Player was added, team has 2 players");
+      })
+    } else if (Team.Player2 == null) {
+      Team.update({Player2: Player.IGN}).then(updated => {
+        return ("Player was added, team has 3 players");
+      })
+    } else if (Team.Player3 == null) {
+      Team.update({Player3: Player.IGN}).then(updated => {
+        return ("Player was added, team has 4 players");
+      })
+    } else if (Team.Player4 == null) {
+      Team.update({Player4: Player.IGN}).then(updated => {
+        return ("Player was added, team is full");
+      })
+    }
+function removeLastPlayer(Team) {
+  if (Team.Player1 == null ) {
+    return ("There are no Players on this team");
+  }
+  else if (Team.Player2 == null) {
+    Team.update({Player1: null}).then(updated => {
+      return ("Player 1 was removed from this team");
+    })
+  }
+  else if (Team.Player3 == null) {
+    Team.update({Player2: null}).then(updated => {
+      return ("Player 2 was removed from this team");
+    })
+  }
+  else if (Team.Player4 == null) {
+    Team.update({Player3: null}).then(updated => {
+      return ("Player 3 was removed from this team");
+    })
+  } else {
+    Team.update({Player4: null}).then(updated => {
+      return ("Player 4 was removed from this team");
+    })
+  }
 }
