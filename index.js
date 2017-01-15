@@ -31,6 +31,15 @@ bot.on("message", msg => {
     }
   }
 
+  if (msg.content.startsWith(prefix + "startBidding")) {
+    sequelize.Players.findAll().then( function(players) => {
+        players.sort(function(a, b) {
+          return a.PeakElo - b.PeakElo;
+        })
+        console.log(players);
+    })
+  }
+
   if (msg.content.startsWith(prefix + "impeach")) {
     msg.channel.sendMessage("This should be the image of John.");
   }
