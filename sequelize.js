@@ -30,9 +30,13 @@ var Players = database.define('player', {
   Roles: {
     type: Sequelize.STRING
   },
+  Commitment: {
+    type:Sequelize.STRING
+  },
   Info: {
     type: Sequelize.STRING
   },
+
   PointsSpentOn: {
     type: Sequelize.INTEGER
   }
