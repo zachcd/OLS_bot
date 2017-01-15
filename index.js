@@ -48,3 +48,28 @@ bot.on('ready', () => {
 bot.on('error', e => { console.error(e); });
 
 bot.login(process.env.npm_package_config_token);
+
+function removeLastPlayer(Team) {
+  if (Team.Player1 == null ) {
+    return ("There are no Players on this team");
+  }
+  else if (Team.Player2 == null) {
+    Team.update({Player1: null}).then(updated => {
+      return ("Player 1 was removed from this team");
+    })
+  }
+  else if (Team.Player3 == null) {
+    Team.update({Player2: null}).then(updated => {
+      return ("Player 2 was removed from this team");
+    })
+  }
+  else if (Team.Player4 == null) {
+    Team.update({Player3: null}).then(updated => {
+      return ("Player 3 was removed from this team");
+    })
+  } else {
+    Team.update({Player4: null}).then(updated => {
+      return ("Player 4 was removed from this team");
+    })
+  }
+}
