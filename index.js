@@ -51,7 +51,7 @@ bot.login(process.env.npm_package_config_token);
 
 function addPoints(Team, pointsToAdd) {
   var points = Team.get().PointsLeft;
-  Team.update.({PointsLeft: points + pointsToAdd}).then(updated => {
+  Team.update({PointsLeft: points + pointsToAdd}).then(updated => {
     return("Team now has " + updated.PointsLeft + " points left");
   })
 }
