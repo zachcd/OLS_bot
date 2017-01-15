@@ -38,7 +38,7 @@ bot.on("message", msg => {
           sequelize.Players.create({Student: currentBool, FullName: player[1], IGN: player[2], PeakElO : elo, Roles: player[5], Commitment: player[6], Info:player[7]}).then(function(playerReturned) {
             playerReturned.update({PeakELO: elo}).then (function(eloupdated) {
               msg.channel.sendMessage(player[1] + " has been added to the draft." );
-            })    
+            })
           });
         })
     }
@@ -53,9 +53,6 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Team " + teamName + " was added to the database with 0 points");
       });
     }
-  }
-  if (msg.content.startsWith(prefix + "players")) {
-
   }
 
   if (msg.content.startsWith(prefix + "startBidding")) {
@@ -125,6 +122,7 @@ function AddPlayer(Player, Team) {
         return ("Player was added, team is full");
       })
     }
+  }
 function removeLastPlayer(Team) {
   if (Team.Player1 == null ) {
     return ("There are no Players on this team");
