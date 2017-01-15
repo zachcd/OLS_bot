@@ -41,6 +41,9 @@ var Team = database.define('team', {
   CaptainID: {
     type: Sequelize.STRING
   },
+  TeamName: {
+    type: Sequelize.STRING
+  },
   CaptainIgn: {
     type: Sequelize.STRING
   },
@@ -56,12 +59,15 @@ var Team = database.define('team', {
   Player3: {
   type: Sequelize.STRING
   },
-  PLayer4: {
+  Player4: {
     type: Sequelize.STRING
   }
 })
 
 
+database.sync().then(() => {
+  console.log("database");
+})
 database
   .authenticate()
   .then(function(err) {
@@ -70,3 +76,7 @@ database
   .catch(function (err) {
     console.log('Unable to connect to the database:', err);
   });
+
+module.exports.Team = Team;
+module.exports.database = database;
+module.exports.Players = Players;
