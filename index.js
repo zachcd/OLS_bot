@@ -48,3 +48,15 @@ bot.on('ready', () => {
 bot.on('error', e => { console.error(e); });
 
 bot.login(process.env.npm_package_config_token);
+
+function removePoints(Team, pointsToRemove) {
+  var points = Team.get().PointsLeft;
+  if (points >= pointsToRemove) {
+    var pointsToHave = points - pointsToRemove;
+  } else {
+    var pointsToHave = 0;
+  }
+  Team.update({PointsLeft: pointsToHave}).then(updated => {
+    return "Team has been left with " + pointsToHave + " points.";
+  })
+}
