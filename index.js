@@ -48,3 +48,7 @@ bot.on('ready', () => {
 bot.on('error', e => { console.error(e); });
 
 bot.login(process.env.npm_package_config_token);
+
+function getPoints(Team) {
+  return(Team.get().PointsLeft);
+}
