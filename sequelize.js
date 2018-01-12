@@ -3,7 +3,6 @@ var Sequelize = require("sequelize");
 var database = new Sequelize('OLS', 'admin', 'password', {
   host: 'localhost',
   dialect: 'sqlite',
-
   pool: {
     max: 5,
     min: 0,
@@ -15,9 +14,6 @@ var database = new Sequelize('OLS', 'admin', 'password', {
 });
 
 var Players = database.define('player', {
-  Student: {
-    type: Sequelize.BOOLEAN
-  },
   FullName: {
     type: Sequelize.STRING
   },
@@ -30,13 +26,12 @@ var Players = database.define('player', {
   Roles: {
     type: Sequelize.STRING
   },
-  Commitment: {
+  GamesPlayed: {
     type:Sequelize.STRING
   },
-  Info: {
+  Notes: {
     type: Sequelize.STRING
   },
-
   PointsSpentOn: {
     type: Sequelize.INTEGER
   }
@@ -55,16 +50,32 @@ var Team = database.define('team', {
     type: Sequelize.INTEGER
   },
   Player1: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+   references: {
+     model: Players,
+     key: 'IGN',
+   }
   },
   Player2: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+     references: {
+       model: Players,
+       key: 'IGN',
+     }
   },
   Player3: {
-  type: Sequelize.STRING
+  type: Sequelize.STRING,
+   references: {
+     model: Players,
+     key: 'IGN',
+   }
   },
   Player4: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+     references: {
+       model: Players,
+       key: 'IGN',
+     }
   }
 })
 
