@@ -11,7 +11,9 @@ var admin = require("./admin.js");
 var register = require("./register.js");
 
 var bot = new Discord.Client();
+var Main = require('./main.js');
 
+var centralMessage = false;
 bot.on("message", msg => {
 
   let prefix="-"
@@ -20,9 +22,13 @@ bot.on("message", msg => {
 
   if(msg.author.bot) return;
 
-  admin(msg);
-  bid(msg);
-  register(msg);
+  if(msg.content.startsWith(prefix + "init") && !centralMessage) {
+    centralMessage = new Main(msg, sequelize);
+  }
+
+  admin(msg, centralMessage);
+  bid(msg, centralMessage);
+  register(msg, centralMessage);
 
 });
 
